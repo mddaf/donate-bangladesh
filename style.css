@@ -102,12 +102,12 @@ nav p,nav h6, .balance, .bal{
 }
 
 
-.page button:hover {
+/* .page button:hover {
     background-color: rgba(128, 128, 128, 0.283); 
     cursor: pointer; 
     transform: scale(1.05); 
     transition: all 0.3s ease; 
-}
+} */
 
 
 .donate-card{
