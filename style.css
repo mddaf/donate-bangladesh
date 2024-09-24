@@ -19,6 +19,7 @@ main{
     width: 70%;
     height: 550px;
     margin: 0px auto;
+    margin-top: 250px;
 
 }
 
@@ -39,6 +40,7 @@ h3,header,header h6{
     font-weight: 700;
 }
 header{
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +48,7 @@ header{
     margin-bottom: 32px;
 
     background: rgba(249, 247, 243, 0.175);
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(35px);
@@ -62,6 +64,7 @@ nav {
     align-items: center;
     backdrop-filter: blur(35px);
     background: rgba(249, 247, 243, 0.271);
+    /* z-index: 1001; */
 }
 
 
@@ -253,9 +256,11 @@ nav p,nav h6, .balance, .bal{
     main {
       width: 95%;
       margin: 0 auto;
+      margin-top: 210px;
     }
   
     header {
+      width: 92%;
       padding: 16px;
     }
 
