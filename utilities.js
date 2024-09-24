@@ -82,3 +82,20 @@ function displayHistory() {
         historyContainer.appendChild(donationCard); 
     });
 }
+
+
+function showModal() {
+    const modal = document.getElementById('donationModal');
+    modal.style.display = "block";
+}
+
+
+function closeModal() {
+    const modal = document.getElementById('donationModal');
+    modal.style.display = "none";
+}
+
+
+function updateBalanceDisplay() {
+    document.querySelector('.balance span').textContent = `${totalBalance}`;
+}
