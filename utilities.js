@@ -30,7 +30,8 @@ window.onload = function () {
 
 function validateDonation(event, card) {
     event.preventDefault(); 
-    const donationInput = document.getElementById(`donate-input-${card}`).value;
+    const donationInputField = document.getElementById(`donate-input-${card}`);
+    const donationInput = donationInputField.value;
     const cardTitle = document.getElementById(`card-title-${card}`).innerText;
 
     if (donationInput > 0) {
@@ -39,6 +40,7 @@ function validateDonation(event, card) {
             updateBalances(donationAmount, card);
             recordDonation(donationAmount, cardTitle);
             showModal();
+            donationInputField.value = '';
         } else {
             alert("Insufficient balance.");
         }
