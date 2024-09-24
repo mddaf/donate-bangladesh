@@ -17,6 +17,7 @@
 
 main{
     width: 70%;
+    height: 550px;
     margin: 0px auto;
 
 }
@@ -252,7 +253,7 @@ footer{
 
 
 
-  @media (max-width: 768px) {
+  @media (max-width: 576px) {
   
     main {
       width: 95%;
