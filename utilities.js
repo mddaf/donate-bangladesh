@@ -37,7 +37,8 @@ function validateDonation(event, card) {
         const donationAmount = parseFloat(donationInput);
         if (donationAmount <= totalBalance) {
             updateBalances(donationAmount, card);
- 
+            recordDonation(donationAmount, cardTitle);
+            showModal();
         } else {
             alert("Insufficient balance.");
         }
@@ -53,4 +54,31 @@ function updateBalances(donationAmount, card) {
     const cardBalance = document.getElementById(`card-balance-${card}`);
     const currentCardBalance = parseFloat(cardBalance.textContent);
     cardBalance.textContent = `${currentCardBalance + donationAmount}`; 
+}
+
+
+function recordDonation(amount, title) {
+    const dateTime = new Date(); 
+    const formattedDate = dateTime.toString(); 
+    donationHistory.push(`${amount} Taka is donated for ${title} <br><span>Date: ${formattedDate}</span>`);
+}
+
+
+function displayHistory() {
+    const historyContainer = document.getElementById('historyList');
+    historyContainer.innerHTML = ''; 
+    if (donationHistory.length === 0) {
+        historyContainer.innerHTML = '<p>Your donation history will appear here.</p>';
+        return;
+    }
+
+    donationHistory.forEach(donation => {
+        const donationCard = document.createElement('div');
+        donationCard.classList.add('donation-card'); 
+
+        const donationInfo = document.createElement('p');
+        donationInfo.innerHTML = donation; 
+        donationCard.appendChild(donationInfo);
+        historyContainer.appendChild(donationCard); 
+    });
 }
