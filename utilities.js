@@ -1,6 +1,6 @@
 
-let totalBalance = 1000; 
-let donationHistory = []; 
+let totalBalance = 1000;
+let donationHistory = [];
 
 function toggleSection(section) {
     const donateSection = document.querySelector('.donate');
@@ -18,18 +18,18 @@ function toggleSection(section) {
         historySection.style.display = 'block';
         donateButton.classList.remove('active');
         historyButton.classList.add('active');
-        displayHistory(); 
+        displayHistory();
     }
 }
 
 window.onload = function () {
-    toggleSection('donate'); 
+    toggleSection('donate');
 }
 
 
 
 function validateDonation(event, card) {
-    event.preventDefault(); 
+    event.preventDefault();
     const donationInputField = document.getElementById(`donate-input-${card}`);
     const donationInput = donationInputField.value;
     const cardTitle = document.getElementById(`card-title-${card}`).innerText;
@@ -50,25 +50,25 @@ function validateDonation(event, card) {
 }
 
 function updateBalances(donationAmount, card) {
-    totalBalance -= donationAmount; 
+    totalBalance -= donationAmount;
     document.querySelector('.balance span').textContent = `${totalBalance}`;
 
     const cardBalance = document.getElementById(`card-balance-${card}`);
     const currentCardBalance = parseFloat(cardBalance.textContent);
-    cardBalance.textContent = `${currentCardBalance + donationAmount}`; 
+    cardBalance.textContent = `${currentCardBalance + donationAmount}`;
 }
 
 
 function recordDonation(amount, title) {
-    const dateTime = new Date(); 
-    const formattedDate = dateTime.toString(); 
+    const dateTime = new Date();
+    const formattedDate = dateTime.toString();
     donationHistory.push(`${amount} Taka is donated for ${title} <br><span>Date: ${formattedDate}</span>`);
 }
 
 
 function displayHistory() {
     const historyContainer = document.getElementById('historyList');
-    historyContainer.innerHTML = ''; 
+    historyContainer.innerHTML = '';
     if (donationHistory.length === 0) {
         historyContainer.innerHTML = '<p>Your donation history will appear here.</p>';
         return;
@@ -76,12 +76,12 @@ function displayHistory() {
 
     donationHistory.forEach(donation => {
         const donationCard = document.createElement('div');
-        donationCard.classList.add('donation-card'); 
+        donationCard.classList.add('donation-card');
 
         const donationInfo = document.createElement('p');
-        donationInfo.innerHTML = donation; 
+        donationInfo.innerHTML = donation;
         donationCard.appendChild(donationInfo);
-        historyContainer.appendChild(donationCard); 
+        historyContainer.appendChild(donationCard);
     });
 }
 
